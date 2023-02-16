@@ -1,0 +1,431 @@
+/* Custom properties/variables  */
+:root {
+    --main-white: #f0f0f0;
+    --main-red: #f38b14;
+    --main-yellow: #f1aa53;
+    --main-gray: #303841;
+    }
+    
+    /* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    font-size: 2.2rem;
+    margin-left: 0px;
+    padding-left: 0px;
+    text-align: left;
+    display: inline-block;
+}
+
+    /* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+
+    /* Set font size for easy rem calculations
+    * default document font size = 16px, 1rem = 16px, 100% = 16px
+    * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+* This helps automate a bit of responsiveness.
+* The trick is to use the rem unit for size values, margin and padding.
+* Because rem is relative to the document font size
+* when we scale up or down the font size on the document
+* it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+* The calculation is the following
+* screen size divided by browser base font size
+* As an example: a breakpoint at 980px
+* 980px / 16px = 61.25em
+*/
+    
+/* 1200px / 16px = 75em */
+@media (max-width: 120em) {
+    html {
+    font-size: 66%;
+    }
+}
+    
+    /* 980px / 16px = 61.25em */
+@media (max-width: 50em) {
+    html {
+    font-size: 45%;
+    }
+}
+    
+    /* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+    html {
+    font-size: 10%;
+    }
+}
+
+/* Base styles */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--main-white);
+}
+
+.zone {
+    /*padding:30px 50px;*/
+    cursor:pointer;
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+.zone:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+h1,
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-white);
+    font-size: 0.7em;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* nav */
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--main-red);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.7em;
+    justify-content: flex-end;
+}
+
+@media (max-width: 50em) {
+    .nav {
+    justify-content: center;
+    font-size: 1px;
+    }
+
+    .navbar-brand {
+    margin-top: 4.5px;
+    padding: 1px;
+    font-size: 1px;
+    }
+
+    .nav-list {
+    margin-left: 0 auto;
+    padding: 0;
+    font-size: 1px;
+    }
+}
+
+.nav-list a {
+    display: flex;
+    font-size: 2.2rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.nav-list a:hover {
+    background: var(--main-white);
+    color:#f38b14;
+}
+
+.push {
+    margin-left: auto;
+}
+
+/* Welcome section */
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(66, 62, 62);
+    background-image: linear-gradient(62deg, #3a3d40 0%, #3a383d 100%);
+}
+
+.welcome-section > p {
+    font-size: 3rem;
+    font-weight: 200;
+    font-style: italic;
+    color: var(--main-red);
+}
+
+/* Projects section */
+
+.projects-section {
+    text-align: center;
+    padding: 10rem 2rem;
+    background: var(--main-white);
+}
+
+.projects-section-header {
+    max-width: 640px;
+    margin: 0 auto 6rem auto;
+    color:var(--main-white);
+    font-style: italic;
+}
+
+@media (max-width: 120em) {
+    .projects-section-header {
+    font-size: 4rem;
+    font-style: italic;
+    }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem; /* Or 20px*/
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+    .projects-section {
+    padding: 6rem 1rem;
+    }
+
+    .projects-grid {
+    grid-template-columns: 1fr;
+    }
+}
+
+.project {
+    background: var(--main-gray);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+
+.code {
+    color: var(--main-red);
+    transition: color 0.3s ease-out;
+}
+
+.project:hover .code, .project-title {
+    color: var(--main-white);
+}
+
+.project-image {
+    height: calc(100% - 6.8rem);
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-title {
+font-size: 2rem;
+padding: 2rem 0.5rem;
+color:#ff7f50;
+background-color:#3a3d40;
+margin-bottom: 0;
+}
+
+.project-title:hover {
+    color:#f38b14;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border-color: transparent;
+}
+
+.btn-show-all {
+    font-size: 2rem;
+    color: var(--main-white);
+    background: var(--main-red);
+    transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+    background: var(--main-yellow);
+    color: var(--main-white);
+}
+
+.btn-show-all:hover > i {
+    transform: translateX(2px);
+}
+
+.btn-show-all > i {
+    margin-left: 10px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 80vh;
+    padding: 0 2rem;
+    background: var(--main-gray);
+}
+
+.contact-section-header > h2 {
+    font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+    .contact-section-header > h2 {
+    font-size: 4rem;
+    }
+}
+
+.contact-section-header > p {
+    font-style: italic;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.contact-details {
+    color: #f0f0f0;
+    font-size: 2.4rem;
+    text-shadow: 2px 2px 1px #1f1f1f;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+    transform: translateY(8px);
+    color:#f38b14;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #444;
+    font-size: medium;
+    padding: 2rem;
+}
+
+@media (max-width: 60em) {
+    footer {
+    flex-direction: column;
+    text-align: center;
+    font-size: medium;
+    }
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+*  Green Background
+**********************************************************************/
+.green {
+    background: #56B870; /* Old browsers */
+    background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+    background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+/***********************************************************************
+*  Red Background
+**********************************************************************/
+.red {
+    background: #C655BE; /* Old browsers */
+    background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+    background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+}
+
+/***********************************************************************
+*  Yellow Background
+**********************************************************************/
+.yellow {
+    background: #F3AAAA; /* Old browsers */
+    background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+    background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+}
+
+/***********************************************************************
+*  Blue Background
+**********************************************************************/
+.blue {
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+    background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+}
